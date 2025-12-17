@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Home, Users, Receipt, Activity, Settings } from 'lucide-react';
 
 const navItems = [
@@ -25,18 +24,13 @@ export function BottomNav() {
                         to={item.path}
                         className={`nav-item ${isActive ? 'active' : ''}`}
                     >
-                        <motion.div
-                            className="nav-icon"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
+                        <div className="nav-icon">
                             <item.icon size={24} />
-                        </motion.div>
+                        </div>
                         <span className="nav-label">{item.label}</span>
                         {isActive && (
-                            <motion.div
+                            <div
                                 className="nav-indicator"
-                                layoutId="nav-indicator"
                                 style={{
                                     position: 'absolute',
                                     bottom: 0,
@@ -45,9 +39,8 @@ export function BottomNav() {
                                     width: 4,
                                     height: 4,
                                     borderRadius: '50%',
-                                    background: 'var(--color-primary-500)',
+                                    background: 'var(--interactive-accent)',
                                 }}
-                                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                             />
                         )}
                     </NavLink>

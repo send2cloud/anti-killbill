@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, Users, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../lib/db';
@@ -73,17 +72,13 @@ export function Dashboard() {
     return (
         <div className="page-container pb-24">
             <PageHeader
-                title={`Hi, ${currentUser.displayName.split(' ')[0]} 👋`}
+                title={`Hi, ${currentUser.displayName.split(' ')[0]}`}
                 subtitle="Here's your expense summary"
             />
 
             {/* Balance Overview */}
             <div className="grid grid-cols-2 gap-4 mb-6">
-                <motion.div
-                    className="card"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
+                <div className="card">
                     <div className="flex items-center gap-2 text-sm text-secondary mb-2">
                         <TrendingUp size={16} className="text-owed" />
                         <span>You are owed</span>
@@ -91,14 +86,9 @@ export function Dashboard() {
                     <div className="text-2xl font-bold text-owed">
                         {formatCurrency(totalOwed)}
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    className="card"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                >
+                <div className="card">
                     <div className="flex items-center gap-2 text-sm text-secondary mb-2">
                         <TrendingDown size={16} className="text-owe" />
                         <span>You owe</span>
@@ -106,28 +96,23 @@ export function Dashboard() {
                     <div className="text-2xl font-bold text-owe">
                         {formatCurrency(totalOwe)}
                     </div>
-                </motion.div>
+                </div>
             </div>
 
             {/* Net Balance Card */}
-            <motion.div
-                className="balance-card mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-            >
+            <div className="balance-card mb-6">
                 <div className="balance-label">Net Balance</div>
                 <div className="balance-amount">
                     {netBalance >= 0 ? '+' : ''}{formatCurrency(netBalance)}
                 </div>
                 <div className="balance-detail">
                     {netBalance > 0
-                        ? "You're in the green! 🎉"
+                        ? "You're in the green"
                         : netBalance < 0
                             ? "Time to settle up some debts"
-                            : "All settled up! Perfect balance"}
+                            : "All settled up"}
                 </div>
-            </motion.div>
+            </div>
 
             {/* Your Groups */}
             <div className="section-header">
@@ -147,11 +132,7 @@ export function Dashboard() {
                 {isLoading ? (
                     <GroupCardSkeleton count={2} />
                 ) : groupsWithBalances.length === 0 ? (
-                    <motion.div
-                        className="empty-state"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                    >
+                    <div className="empty-state">
                         <div className="empty-state-icon">
                             <Users size={32} />
                         </div>
@@ -165,18 +146,16 @@ export function Dashboard() {
                         >
                             Create Group
                         </button>
-                    </motion.div>
+                    </div>
                 ) : (
-                    groupsWithBalances.slice(0, 3).map((group, index) => (
+                    groupsWithBalances.slice(0, 3).map((group) => (
                         <GroupCard
                             key={group.id}
                             id={group.id}
                             name={group.name}
-                            emoji={group.emoji || '👥'}
                             memberNames={group.members?.map((m) => m.displayName) || []}
                             balance={group.userBalance}
                             currency={group.currency || 'USD'}
-                            index={index}
                         />
                     ))
                 )}
@@ -199,7 +178,7 @@ export function Dashboard() {
                         {isLoading ? (
                             <ExpenseCardSkeleton count={3} />
                         ) : (
-                            recentExpenses.map((expense, index) => (
+                            recentExpenses.map((expense) => (
                                 <ExpenseCard
                                     key={expense.id}
                                     id={expense.id}
@@ -210,7 +189,6 @@ export function Dashboard() {
                                     currency={expense.currency || 'USD'}
                                     date={expense.date}
                                     groupId={expense.groupId}
-                                    index={index}
                                 />
                             ))
                         )}

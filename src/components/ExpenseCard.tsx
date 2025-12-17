@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { formatCurrency, formatRelativeDate } from '../utils/formatters';
 import { getCategoryById } from '../utils/calculations';
 
@@ -12,7 +11,6 @@ interface ExpenseCardProps {
     currency: string;
     date: number;
     yourShare?: number;
-    index?: number;
     groupId?: string;
 }
 
@@ -25,7 +23,6 @@ export function ExpenseCard({
     currency,
     date,
     yourShare,
-    index = 0,
     groupId,
 }: ExpenseCardProps) {
     const navigate = useNavigate();
@@ -40,20 +37,15 @@ export function ExpenseCard({
     };
 
     return (
-        <motion.div
+        <div
             className="expense-card cursor-pointer"
             onClick={handleClick}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.03 }}
-            whileHover={{ x: 4 }}
-            whileTap={{ scale: 0.98 }}
         >
             <div
                 className="expense-icon"
                 style={{ background: categoryInfo.color }}
             >
-                {categoryInfo.emoji}
+                <categoryInfo.icon size={20} />
             </div>
 
             <div className="expense-info">
@@ -76,7 +68,7 @@ export function ExpenseCard({
                     </div>
                 )}
             </div>
-        </motion.div>
+        </div>
     );
 }
 

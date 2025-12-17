@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 interface ModalProps {
@@ -10,59 +9,42 @@ interface ModalProps {
 }
 
 export function Modal({ isOpen, onClose, title, children }: ModalProps) {
+    if (!isOpen) return null;
+
     return (
-        <AnimatePresence>
-            {isOpen && (
-                <>
-                    {/* Backdrop */}
-                    <motion.div
-                        className="modal-backdrop"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={onClose}
-                    />
+        <>
+            {/* Backdrop */}
+            <div
+                className="modal-backdrop"
+                onClick={onClose}
+            />
 
-                    {/* Mobile: Bottom Sheet */}
-                    <motion.div
-                        className="modal bottom-sheet hide-desktop"
-                        initial={{ y: '100%' }}
-                        animate={{ y: 0 }}
-                        exit={{ y: '100%' }}
-                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                    >
-                        <div className="bottom-sheet-handle" />
-                        {title && (
-                            <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-semibold">{title}</h2>
-                                <button className="btn-icon btn-ghost" onClick={onClose}>
-                                    <X size={20} />
-                                </button>
-                            </div>
-                        )}
-                        {children}
-                    </motion.div>
+            {/* Mobile: Bottom Sheet */}
+            <div className="modal bottom-sheet hide-desktop">
+                <div className="bottom-sheet-handle" />
+                {title && (
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-semibold">{title}</h2>
+                        <button className="btn-icon btn-ghost" onClick={onClose}>
+                            <X size={20} />
+                        </button>
+                    </div>
+                )}
+                {children}
+            </div>
 
-                    {/* Desktop: Center Modal */}
-                    <motion.div
-                        className="modal center-modal hide-mobile"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                    >
-                        {title && (
-                            <div className="flex items-center justify-between mb-4">
-                                <h2 className="text-xl font-semibold">{title}</h2>
-                                <button className="btn-icon btn-ghost" onClick={onClose}>
-                                    <X size={20} />
-                                </button>
-                            </div>
-                        )}
-                        {children}
-                    </motion.div>
-                </>
-            )}
-        </AnimatePresence>
+            {/* Desktop: Center Modal */}
+            <div className="modal center-modal hide-mobile">
+                {title && (
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-semibold">{title}</h2>
+                        <button className="btn-icon btn-ghost" onClick={onClose}>
+                            <X size={20} />
+                        </button>
+                    </div>
+                )}
+                {children}
+            </div>
+        </>
     );
 }

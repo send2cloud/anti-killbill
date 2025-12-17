@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, X, Receipt, CreditCard, Users } from 'lucide-react';
+import { Plus, Receipt, CreditCard, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface FABAction {
@@ -43,53 +42,39 @@ export function FAB() {
     return (
         <>
             {/* Backdrop */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        className="fab-backdrop"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setIsOpen(false)}
-                    />
-                )}
-            </AnimatePresence>
+            {isOpen && (
+                <div
+                    className="fab-backdrop"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
 
             <div className="fab-container">
-                <AnimatePresence>
-                    {isOpen && (
-                        <div className="fab-menu">
-                            {actions.map((action, index) => (
-                                <motion.button
-                                    key={action.label}
-                                    className="fab-menu-item"
-                                    initial={{ opacity: 0, x: 20, scale: 0.8 }}
-                                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                                    exit={{ opacity: 0, x: 20, scale: 0.8 }}
-                                    transition={{ delay: index * 0.05 }}
-                                    onClick={action.onClick}
-                                >
-                                    <div className="fab-menu-item-icon">
-                                        <action.icon size={20} />
-                                    </div>
-                                    <span className="fab-menu-item-label">
-                                        {action.label}
-                                    </span>
-                                </motion.button>
-                            ))}
-                        </div>
-                    )}
-                </AnimatePresence>
+                {isOpen && (
+                    <div className="fab-menu">
+                        {actions.map((action) => (
+                            <button
+                                key={action.label}
+                                className="fab-menu-item"
+                                onClick={action.onClick}
+                            >
+                                <div className="fab-menu-item-icon">
+                                    <action.icon size={20} />
+                                </div>
+                                <span className="fab-menu-item-label">
+                                    {action.label}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+                )}
 
-                <motion.button
-                    className="fab"
+                <button
+                    className={`fab ${isOpen ? 'fab-open' : ''}`}
                     onClick={() => setIsOpen(!isOpen)}
-                    animate={{ rotate: isOpen ? 45 : 0 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                 >
-                    <Plus size={24} />
-                </motion.button>
+                    <Plus size={24} className={isOpen ? 'fab-icon-rotated' : ''} />
+                </button>
             </div>
         </>
     );

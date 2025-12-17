@@ -114,16 +114,14 @@ export function Groups() {
                         )}
                     </motion.div>
                 ) : (
-                    groupsWithBalances.map((group, index) => (
+                    groupsWithBalances.map((group) => (
                         <GroupCard
                             key={group.id}
                             id={group.id}
                             name={group.name}
-                            emoji={group.emoji || '👥'}
                             memberNames={group.members?.map((m) => m.displayName) || []}
                             balance={group.userBalance}
                             currency={group.currency || 'USD'}
-                            index={index}
                         />
                     ))
                 )}

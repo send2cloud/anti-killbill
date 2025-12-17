@@ -190,7 +190,7 @@ export function AddExpense() {
                                     }`}
                                 onClick={() => setCategory(cat.id)}
                             >
-                                <span>{cat.emoji}</span>
+                                <cat.icon size={16} />
                                 <span>{cat.label}</span>
                             </button>
                         ))}

@@ -227,7 +227,7 @@ export function GroupDetail() {
                                     </button>
                                 </div>
                             ) : (
-                                sortedExpenses.map((expense, index) => (
+                                sortedExpenses.map((expense) => (
                                     <ExpenseCard
                                         key={expense.id}
                                         id={expense.id}
@@ -238,7 +238,6 @@ export function GroupDetail() {
                                         currency={currency}
                                         date={expense.date}
                                         groupId={groupId}
-                                        index={index}
                                     />
                                 ))
                             )}

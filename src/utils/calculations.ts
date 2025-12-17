@@ -231,19 +231,28 @@ export function getBalanceBetweenUsers(
     return Math.round(balance * 100) / 100;
 }
 
-/**
- * Category definitions with icons and colors
- */
-export const EXPENSE_CATEGORIES = [
-    { id: 'food', label: 'Food & Drinks', emoji: '🍔', color: '#fef3c7' },
-    { id: 'transport', label: 'Transport', emoji: '🚗', color: '#dbeafe' },
-    { id: 'accommodation', label: 'Accommodation', emoji: '🏨', color: '#fce7f3' },
-    { id: 'entertainment', label: 'Entertainment', emoji: '🎬', color: '#e9d5ff' },
-    { id: 'shopping', label: 'Shopping', emoji: '🛍️', color: '#d1fae5' },
-    { id: 'utilities', label: 'Utilities', emoji: '💡', color: '#e0e7ff' },
-    { id: 'other', label: 'Other', emoji: '📦', color: '#f3f4f6' },
-] as const;
+import { Utensils, Car, Home, Film, ShoppingBag, Zap, Package, type LucideIcon } from 'lucide-react';
 
-export function getCategoryById(categoryId: string) {
+/**
+ * Category definitions with Lucide icons and colors
+ */
+export interface CategoryDef {
+    id: string;
+    label: string;
+    icon: LucideIcon;
+    color: string;
+}
+
+export const EXPENSE_CATEGORIES: CategoryDef[] = [
+    { id: 'food', label: 'Food & Drinks', icon: Utensils, color: '#fef3c7' },
+    { id: 'transport', label: 'Transport', icon: Car, color: '#dbeafe' },
+    { id: 'accommodation', label: 'Accommodation', icon: Home, color: '#fce7f3' },
+    { id: 'entertainment', label: 'Entertainment', icon: Film, color: '#e9d5ff' },
+    { id: 'shopping', label: 'Shopping', icon: ShoppingBag, color: '#d1fae5' },
+    { id: 'utilities', label: 'Utilities', icon: Zap, color: '#e0e7ff' },
+    { id: 'other', label: 'Other', icon: Package, color: '#f3f4f6' },
+];
+
+export function getCategoryById(categoryId: string): CategoryDef {
     return EXPENSE_CATEGORIES.find((c) => c.id === categoryId) || EXPENSE_CATEGORIES[6];
 }

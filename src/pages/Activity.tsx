@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { db } from '../lib/db';
 import { useAuth } from '../context/AuthContext';
 import { PageHeader } from '../components/Header';
@@ -55,11 +54,7 @@ export function Activity() {
             {isLoading ? (
                 <ExpenseCardSkeleton count={6} />
             ) : allExpenses.length === 0 ? (
-                <motion.div
-                    className="empty-state"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                >
+                <div className="empty-state">
                     <div className="empty-state-icon">
                         <Receipt size={32} />
                     </div>
@@ -67,7 +62,7 @@ export function Activity() {
                     <p className="empty-state-description">
                         Expenses from your groups will appear here
                     </p>
-                </motion.div>
+                </div>
             ) : (
                 Object.entries(expensesByDate).map(([date, expenses]) => (
                     <div key={date} className="mb-6">
@@ -79,7 +74,7 @@ export function Activity() {
                                     : date}
                         </h3>
                         <div className="flex flex-col gap-2">
-                            {expenses.map((expense, index) => (
+                            {expenses.map((expense) => (
                                 <ExpenseCard
                                     key={expense.id}
                                     id={expense.id}
@@ -90,7 +85,6 @@ export function Activity() {
                                     currency={expense.currency}
                                     date={expense.date}
                                     groupId={expense.groupId}
-                                    index={index}
                                 />
                             ))}
                         </div>

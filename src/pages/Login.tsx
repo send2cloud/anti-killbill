@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 
 export function Login() {
@@ -28,22 +27,15 @@ export function Login() {
 
     return (
         <div className="login-container">
-            <motion.div
-                className="login-card"
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-            >
+            <div className="login-card">
                 {/* Logo */}
                 <div className="login-logo">
-                    <motion.div
-                        className="login-logo-icon"
-                        initial={{ rotate: -10 }}
-                        animate={{ rotate: 0 }}
-                        transition={{ delay: 0.2, type: 'spring' }}
-                    >
-                        💰
-                    </motion.div>
+                    <div className="login-logo-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="12" fill="var(--interactive-accent)" />
+                            <path d="M14 24L22 32L34 16" stroke="var(--interactive-on-accent)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </div>
                     <h1 className="login-title">Kill Bill</h1>
                     <p className="login-subtitle">Split expenses with friends</p>
                 </div>
@@ -52,66 +44,53 @@ export function Login() {
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label className="form-label">Username</label>
-                        <motion.input
+                        <input
                             type="text"
                             className="form-input"
                             placeholder="Enter your username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            whileFocus={{ scale: 1.01 }}
                             required
                         />
                     </div>
 
                     <div className="form-group">
                         <label className="form-label">PIN</label>
-                        <motion.input
+                        <input
                             type="password"
                             className="form-input"
                             placeholder="Enter your PIN"
                             value={pin}
                             onChange={(e) => setPin(e.target.value)}
                             maxLength={6}
-                            whileFocus={{ scale: 1.01 }}
                             required
                         />
                     </div>
 
                     {error && (
-                        <motion.div
-                            className="text-error text-sm mb-4"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                        >
+                        <div className="text-error text-sm mb-4">
                             {error}
-                        </motion.div>
+                        </div>
                     )}
 
-                    <motion.button
+                    <button
                         type="submit"
                         className="btn btn-primary btn-lg btn-block"
                         disabled={isLoading || !username || !pin}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                     >
                         {isLoading ? (
                             <div className="spinner" style={{ width: 20, height: 20 }} />
                         ) : (
                             'Sign In'
                         )}
-                    </motion.button>
+                    </button>
                 </form>
 
                 {/* Demo hint */}
-                <motion.div
-                    className="text-center text-sm text-secondary mt-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                >
+                <div className="text-center text-sm text-secondary mt-6">
                     Ask your admin to create an account for you
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
         </div>
     );
 }
