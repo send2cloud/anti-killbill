@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kill Bill Design System Demo</title>
+    <link rel="stylesheet" href="kill-bill-globals.css">
+    <link rel="stylesheet" href="kill-bill-components.css">
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            padding: 3rem;
+            border-bottom: 2px solid hsl(var(--steel-gray-dark));
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .color-swatch {
+            height: 80px;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.5rem;
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+        }
+
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .demo-buttons button {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .demo-card {
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO SECTION - Chapter Opening
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section" style="text-align: center; padding: 6rem 2rem;">
+        <div class="stripe-bride" style="height: 20px; margin-bottom: 3rem;"></div>
+        <h1 class="chapter-title entrance-slash">KILL BILL</h1>
+        <p class="chapter-subtitle">DESIGN SYSTEM FOR SHADCN / TAILWIND</p>
+        <div class="stripe-bride" style="height: 20px; margin-top: 3rem;"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       COLORS
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Color Palette
+        </h2>
+        <div class="demo-grid">
+            <div class="color-swatch" style="background: hsl(var(--bride-yellow)); color: black;">
+                Bride Yellow
+            </div>
+            <div class="color-swatch" style="background: hsl(var(--blood-red-bright)); color: white;">
+                Blood Red Bright
+            </div>
+            <div class="color-swatch" style="background: hsl(var(--blood-red)); color: white;">
+                Blood Red
+            </div>
+            <div class="color-swatch"
+                style="background: hsl(var(--samurai-black)); color: hsl(var(--bride-yellow)); border: 1px solid hsl(var(--steel-gray));">
+                Samurai Black
+            </div>
+            <div class="color-swatch" style="background: hsl(var(--steel-gray)); color: white;">
+                Steel Gray
+            </div>
+            <div class="color-swatch" style="background: hsl(var(--tokyo-neon-pink)); color: black;">
+                Tokyo Neon Pink
+            </div>
+            <div class="color-swatch" style="background: hsl(var(--tokyo-neon-blue)); color: black;">
+                Tokyo Neon Blue
+            </div>
+            <div class="color-swatch" style="background: hsl(var(--paper-cream)); color: black;">
+                Paper Cream
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       TYPOGRAPHY
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Typography
+        </h2>
+        <div style="margin-top: 2rem;">
+            <p class="chapter-title" style="font-size: var(--text-6xl);">CHAPTER 1</p>
+            <p class="chapter-subtitle">THE DEADLY VIPER ASSASSINATION SQUAD</p>
+            <p class="display" style="font-size: var(--text-4xl); color: hsl(var(--bride-yellow)); margin-top: 2rem;">
+                Display Text - Bebas Neue
+            </p>
+            <h3
+                style="font-family: var(--font-heading); font-size: var(--text-2xl); text-transform: uppercase; color: hsl(var(--paper-cream)); margin-top: 1.5rem;">
+                Heading Text - Oswald
+            </h3>
+            <p
+                style="font-family: var(--font-body); font-size: var(--text-base); color: hsl(var(--paper-cream)); margin-top: 1rem; max-width: 600px; line-height: 1.6;">
+                Body text uses Inter. This is sample body copy demonstrating the clean, readable typeface for longer
+                content. Revenge is a dish best served cold.
+            </p>
+            <p class="neon-text"
+                style="font-family: var(--font-display); font-size: var(--text-3xl); margin-top: 2rem;">
+                TOKYO NEON TEXT
+            </p>
+            <p class="blood-text"
+                style="font-family: var(--font-heading); font-size: var(--text-3xl); margin-top: 1rem;">
+                BLOOD TEXT STYLE
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       BUTTONS
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Buttons
+        </h2>
+        <div class="demo-buttons">
+            <button class="btn-primary">Primary</button>
+            <button class="btn-destructive">Destructive</button>
+            <button class="btn-secondary">Secondary</button>
+            <button class="btn-outline">Outline</button>
+            <button class="btn-ghost">Ghost</button>
+            <button class="btn-primary btn-katana">Katana Effect</button>
+            <button class="btn-primary splatter">Splatter Effect</button>
+            <button class="btn-destructive pulse-danger">Danger Pulse</button>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       CARDS
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Cards
+        </h2>
+        <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <!-- Chapter Card -->
+            <div class="chapter-card">
+                <h3
+                    style="font-family: var(--font-heading); font-size: var(--text-xl); text-transform: uppercase; color: hsl(var(--bride-yellow)); margin-top: 0.5rem;">
+                    Chapter Card
+                </h3>
+                <p style="color: hsl(var(--paper-cream)); margin-top: 0.5rem; font-size: var(--text-sm);">
+                    Features the iconic yellow/black stripe header from the anime sequences.
+                </p>
+            </div>
+
+            <!-- Blood Card -->
+            <div class="card card-blood demo-card">
+                <h3
+                    style="font-family: var(--font-heading); font-size: var(--text-xl); text-transform: uppercase; color: hsl(var(--blood-red-bright));">
+                    Blood Card
+                </h3>
+                <p style="color: hsl(var(--paper-cream)); margin-top: 0.5rem; font-size: var(--text-sm);">
+                    Red-tinted variant for destructive or warning content.
+                </p>
+            </div>
+
+            <!-- Default Card -->
+            <div class="card demo-card">
+                <h3
+                    style="font-family: var(--font-heading); font-size: var(--text-xl); text-transform: uppercase; color: hsl(var(--paper-cream));">
+                    Default Card
+                </h3>
+                <p style="color: hsl(var(--steel-gray-light)); margin-top: 0.5rem; font-size: var(--text-sm);">
+                    Standard card with hover effects and sharp corners.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       BADGES
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Badges
+        </h2>
+        <div class="demo-buttons">
+            <span class="badge badge-bride">The Bride</span>
+            <span class="badge badge-blood">O-Ren Ishii</span>
+            <span class="badge badge-steel">Bill</span>
+            <span class="badge badge-outline">Hattori Hanzo</span>
+            <span class="badge badge-kill">Vernita Green</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       EFFECTS
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Special Effects
+        </h2>
+        <div class="demo-grid" style="margin-top: 2rem;">
+            <!-- Katana Hover -->
+            <div class="card demo-card katana-hover" style="cursor: pointer;">
+                <h4
+                    style="font-family: var(--font-heading); text-transform: uppercase; color: hsl(var(--paper-cream));">
+                    Katana Hover
+                </h4>
+                <p style="color: hsl(var(--steel-gray-light)); font-size: var(--text-sm); margin-top: 0.5rem;">
+                    Hover to see slash effect
+                </p>
+            </div>
+
+            <!-- Splatter -->
+            <div class="card demo-card splatter" style="cursor: pointer;">
+                <h4
+                    style="font-family: var(--font-heading); text-transform: uppercase; color: hsl(var(--paper-cream));">
+                    Blood Splatter
+                </h4>
+                <p style="color: hsl(var(--steel-gray-light)); font-size: var(--text-sm); margin-top: 0.5rem;">
+                    Hover for splatter
+                </p>
+            </div>
+
+            <!-- Animated Stripes -->
+            <div style="overflow: hidden;">
+                <div class="stripe-animated" style="height: 60px;"></div>
+                <p
+                    style="font-family: var(--font-heading); text-transform: uppercase; color: hsl(var(--paper-cream)); text-align: center; padding: 1rem;">
+                    Animated Stripes
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       INPUTS
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="demo-section">
+        <h2
+            style="font-family: var(--font-heading); font-size: var(--text-3xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--bride-yellow));">
+            Form Inputs
+        </h2>
+        <div style="max-width: 400px; margin-top: 1.5rem;">
+            <input type="text" placeholder="Enter your name..."
+                style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+            <input type="text" placeholder="Error state" class="input-error"
+                style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+            <textarea placeholder="Your message..."
+                style="width: 100%; padding: 0.75rem; min-height: 100px;"></textarea>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════════ -->
+    <footer class="demo-section" style="text-align: center;">
+        <div class="stripe-bride" style="height: 12px; margin-bottom: 2rem;"></div>
+        <p
+            style="font-family: var(--font-heading); font-size: var(--text-xl); text-transform: uppercase; letter-spacing: 0.1em; color: hsl(var(--steel-gray-light));">
+            "It's mercy, compassion, and forgiveness I lack. Not rationality."
+        </p>
+        <p
+            style="font-family: var(--font-display); font-size: var(--text-4xl); color: hsl(var(--bride-yellow)); margin-top: 1rem;">
+            — THE BRIDE
+        </p>
+        <div class="stripe-bride" style="height: 12px; margin-top: 2rem;"></div>
+    </footer>
+
+</body>
+
+</html>

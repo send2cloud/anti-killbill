@@ -1,0 +1,586 @@
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * KILL BILL DESIGN SYSTEM - Global Styles
+ * ═══════════════════════════════════════════════════════════════════════════
+ * Inspired by Quentin Tarantino's Kill Bill Vol. 1 & 2
+ * Featuring: The Bride's yellow, blood red accents, samurai black, anime styling
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ROOT VARIABLES - LIGHT MODE (The House of Blue Leaves)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ─────────────────────────────────────────────────────────────────────────
+     KILL BILL COLOR PALETTE
+     ───────────────────────────────────────────────────────────────────────── */
+
+    /* The Bride's Yellow - Iconic tracksuit color */
+    --bride-yellow: 48 100% 50%;
+    --bride-yellow-light: 48 100% 60%;
+    --bride-yellow-dark: 45 100% 42%;
+    --bride-yellow-muted: 48 70% 45%;
+
+    /* Blood Red - Samurai sword violence */
+    --blood-red: 0 100% 27%;
+    --blood-red-bright: 0 100% 45%;
+    --blood-red-dark: 0 100% 20%;
+    --blood-splash: 355 100% 42%;
+
+    /* Samurai Black - O-Ren Ishii's world */
+    --samurai-black: 0 0% 5%;
+    --samurai-black-light: 0 0% 10%;
+    --samurai-black-soft: 0 0% 15%;
+
+    /* Tokyo Night - Neon accents */
+    --tokyo-neon-pink: 330 100% 60%;
+    --tokyo-neon-blue: 200 100% 50%;
+
+    /* Steel Gray - Hattori Hanzo's swords */
+    --steel-gray: 220 10% 40%;
+    --steel-gray-light: 220 10% 60%;
+    --steel-gray-dark: 220 10% 25%;
+
+    /* Paper/Parchment - Traditional Japanese */
+    --paper-cream: 40 40% 95%;
+    --paper-aged: 35 30% 88%;
+
+    /* ─────────────────────────────────────────────────────────────────────────
+     SHADCN COMPATIBLE VARIABLES - DARK THEME DEFAULT
+     ───────────────────────────────────────────────────────────────────────── */
+
+    --background: 0 0% 5%;
+    --foreground: 48 100% 50%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 40 40% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 40% 95%;
+
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 48 100% 50%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 0 100% 45%;
+    --accent-foreground: 40 40% 95%;
+
+    --destructive: 0 100% 27%;
+    --destructive-foreground: 40 40% 95%;
+
+    --border: 48 50% 25%;
+    --input: 0 0% 15%;
+    --ring: 48 100% 50%;
+
+    --chart-1: 48 100% 50%;
+    --chart-2: 0 100% 45%;
+    --chart-3: 330 100% 60%;
+    --chart-4: 200 100% 50%;
+    --chart-5: 220 10% 60%;
+
+    --radius: 0.125rem;
+
+    /* ─────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY
+     ───────────────────────────────────────────────────────────────────────── */
+
+    --font-display: 'Bebas Neue', 'Impact', sans-serif;
+    --font-heading: 'Oswald', 'Impact', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
+
+    /* ─────────────────────────────────────────────────────────────────────────
+     SPACING & SIZING
+     ───────────────────────────────────────────────────────────────────────── */
+
+    --space-dramatic: 8rem;
+    --space-cinematic: 6rem;
+    --space-scene: 4rem;
+    --space-shot: 2rem;
+    --space-frame: 1rem;
+    --space-cut: 0.5rem;
+
+    /* ─────────────────────────────────────────────────────────────────────────
+     SHADOWS - Dramatic noir lighting
+     ───────────────────────────────────────────────────────────────────────── */
+
+    --shadow-katana: 0 4px 20px -2px rgba(255, 215, 0, 0.3);
+    --shadow-blood: 0 4px 20px -2px rgba(139, 0, 0, 0.5);
+    --shadow-noir: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+    --shadow-dramatic: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+     BORDERS
+     ───────────────────────────────────────────────────────────────────────── */
+
+    --border-katana: 2px solid hsl(var(--bride-yellow));
+    --border-blood: 2px solid hsl(var(--blood-red-bright));
+    --border-steel: 1px solid hsl(var(--steel-gray));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LIGHT THEME - "Chapter" Interstitials
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.light {
+    --background: 40 40% 95%;
+    --foreground: 0 0% 5%;
+
+    --card: 40 40% 98%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 40 40% 98%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 5%;
+    --primary-foreground: 48 100% 50%;
+
+    --secondary: 35 30% 88%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 35 30% 88%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 100% 45%;
+    --destructive-foreground: 40 40% 95%;
+
+    --border: 35 30% 75%;
+    --input: 35 30% 88%;
+    --ring: 0 0% 5%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIDEBAR VARIABLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 48 100% 50%;
+    --sidebar-primary: 48 100% 50%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 100% 27%;
+    --sidebar-accent-foreground: 40 40% 95%;
+    --sidebar-border: 48 50% 20%;
+    --sidebar-ring: 48 100% 50%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+* {
+    border-color: hsl(var(--border));
+}
+
+body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.display {
+    font-family: var(--font-display);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.chapter-title {
+    font-family: var(--font-display);
+    font-size: var(--text-8xl);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: hsl(var(--bride-yellow));
+    text-shadow: 4px 4px 0 hsl(var(--blood-red));
+}
+
+.chapter-subtitle {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--steel-gray-light));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes katana-slash {
+    0% {
+        transform: translateX(-100%) rotate(-45deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes blood-drip {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+@keyframes blood-splatter {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse-danger {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 hsla(0, 100%, 45%, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 15px hsla(0, 100%, 45%, 0);
+    }
+}
+
+@keyframes neon-flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    92% {
+        opacity: 1;
+    }
+
+    93% {
+        opacity: 0.3;
+    }
+
+    94% {
+        opacity: 1;
+    }
+
+    96% {
+        opacity: 0.5;
+    }
+
+    97% {
+        opacity: 1;
+    }
+}
+
+@keyframes film-grain {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-1%, -1%);
+    }
+
+    20% {
+        transform: translate(1%, 1%);
+    }
+
+    30% {
+        transform: translate(-1%, 1%);
+    }
+
+    40% {
+        transform: translate(1%, -1%);
+    }
+
+    50% {
+        transform: translate(-1%, 0%);
+    }
+
+    60% {
+        transform: translate(1%, 0%);
+    }
+
+    70% {
+        transform: translate(0%, 1%);
+    }
+
+    80% {
+        transform: translate(0%, -1%);
+    }
+
+    90% {
+        transform: translate(1%, 1%);
+    }
+}
+
+@keyframes chapter-reveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes stripe-slide {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 0;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES - KILL BILL SPECIFIC
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Yellow Bride Tracksuit Stripe */
+.stripe-bride {
+    background: repeating-linear-gradient(90deg,
+            hsl(var(--bride-yellow)) 0px,
+            hsl(var(--bride-yellow)) 10px,
+            hsl(var(--samurai-black)) 10px,
+            hsl(var(--samurai-black)) 20px);
+}
+
+/* Animated stripes */
+.stripe-animated {
+    background: repeating-linear-gradient(90deg,
+            hsl(var(--bride-yellow)) 0px,
+            hsl(var(--bride-yellow)) 25px,
+            hsl(var(--samurai-black)) 25px,
+            hsl(var(--samurai-black)) 50px);
+    animation: stripe-slide 1s linear infinite;
+}
+
+/* Blood splatter effect */
+.splatter {
+    position: relative;
+}
+
+.splatter::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at 20% 80%,
+            hsl(var(--blood-red-bright)) 0%,
+            transparent 30%),
+        radial-gradient(circle at 80% 20%,
+            hsl(var(--blood-red)) 0%,
+            transparent 25%),
+        radial-gradient(circle at 60% 60%,
+            hsl(var(--blood-splash)) 0%,
+            transparent 20%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.splatter:hover::after {
+    opacity: 1;
+}
+
+/* Chapter card styling */
+.chapter-card {
+    background: hsl(var(--samurai-black));
+    border: 4px solid hsl(var(--bride-yellow));
+    padding: var(--space-scene);
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: repeating-linear-gradient(90deg,
+            hsl(var(--bride-yellow)) 0px,
+            hsl(var(--bride-yellow)) 15px,
+            hsl(var(--samurai-black)) 15px,
+            hsl(var(--samurai-black)) 30px);
+}
+
+/* Katana hover effect */
+.katana-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.katana-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            hsl(var(--bride-yellow)),
+            hsl(var(--steel-gray-light)),
+            transparent);
+    transform: rotate(-45deg);
+    transition: left 0.5s ease;
+}
+
+.katana-hover:hover::before {
+    left: 100%;
+}
+
+/* Film grain overlay */
+.film-grain {
+    position: relative;
+}
+
+.film-grain::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    animation: film-grain 0.5s steps(10) infinite;
+    z-index: 1000;
+}
+
+/* Neon text effect */
+.neon-text {
+    text-shadow:
+        0 0 5px hsl(var(--bride-yellow)),
+        0 0 10px hsl(var(--bride-yellow)),
+        0 0 20px hsl(var(--bride-yellow)),
+        0 0 40px hsl(var(--tokyo-neon-pink));
+    animation: neon-flicker 3s infinite;
+}
+
+/* Blood text */
+.blood-text {
+    color: hsl(var(--blood-red-bright));
+    text-shadow:
+        2px 2px 0 hsl(var(--blood-red-dark)),
+        4px 4px 10px hsla(0, 100%, 27%, 0.5);
+}
+
+/* Sharp card - no rounded corners */
+.sharp {
+    border-radius: 0 !important;
+}
+
+/* Dramatic entrance */
+.entrance-slash {
+    animation: chapter-reveal 0.8s ease-out forwards;
+}
+
+/* Danger pulse */
+.pulse-danger {
+    animation: pulse-danger 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLLBAR STYLING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--samurai-black));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--bride-yellow-dark));
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--bride-yellow));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SELECTION STYLING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+::selection {
+    background: hsl(var(--blood-red-bright));
+    color: hsl(var(--paper-cream));
+}
+
+::-moz-selection {
+    background: hsl(var(--blood-red-bright));
+    color: hsl(var(--paper-cream));
+}

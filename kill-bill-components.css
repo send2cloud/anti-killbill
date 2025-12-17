@@ -1,0 +1,707 @@
+/*
+ * ═══════════════════════════════════════════════════════════════════════════
+ * KILL BILL DESIGN SYSTEM - ShadCN Component Overrides
+ * ═══════════════════════════════════════════════════════════════════════════
+ * Custom styling for all ShadCN/ui components with Kill Bill aesthetics
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTONS - The Bride's weapons
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Base button styles */
+.btn,
+[class*="Button"] {
+    font-family: var(--font-heading);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary - The Bride Yellow */
+.btn-primary,
+[data-variant="default"] {
+    background: hsl(var(--bride-yellow));
+    color: hsl(var(--samurai-black));
+    border: 2px solid hsl(var(--bride-yellow-dark));
+    font-weight: 700;
+}
+
+.btn-primary:hover,
+[data-variant="default"]:hover {
+    background: hsl(var(--bride-yellow-light));
+    box-shadow: var(--shadow-katana);
+    transform: translateY(-2px);
+}
+
+.btn-primary:active,
+[data-variant="default"]:active {
+    transform: translateY(0);
+}
+
+/* Destructive - Blood Red */
+.btn-destructive,
+[data-variant="destructive"] {
+    background: hsl(var(--blood-red-bright));
+    color: hsl(var(--paper-cream));
+    border: 2px solid hsl(var(--blood-red-dark));
+}
+
+.btn-destructive:hover,
+[data-variant="destructive"]:hover {
+    background: hsl(var(--blood-red));
+    box-shadow: var(--shadow-blood);
+    transform: translateY(-2px);
+}
+
+/* Secondary - Steel Gray */
+.btn-secondary,
+[data-variant="secondary"] {
+    background: hsl(var(--steel-gray-dark));
+    color: hsl(var(--bride-yellow));
+    border: 2px solid hsl(var(--steel-gray));
+}
+
+.btn-secondary:hover,
+[data-variant="secondary"]:hover {
+    background: hsl(var(--steel-gray));
+    border-color: hsl(var(--bride-yellow));
+}
+
+/* Outline - Katana edge */
+.btn-outline,
+[data-variant="outline"] {
+    background: transparent;
+    color: hsl(var(--bride-yellow));
+    border: 2px solid hsl(var(--bride-yellow));
+}
+
+.btn-outline:hover,
+[data-variant="outline"]:hover {
+    background: hsl(var(--bride-yellow));
+    color: hsl(var(--samurai-black));
+}
+
+/* Ghost - Subtle but deadly */
+.btn-ghost,
+[data-variant="ghost"] {
+    background: transparent;
+    color: hsl(var(--bride-yellow));
+    border: 2px solid transparent;
+}
+
+.btn-ghost:hover,
+[data-variant="ghost"]:hover {
+    background: hsla(48, 100%, 50%, 0.1);
+    border-color: hsla(48, 100%, 50%, 0.3);
+}
+
+/* Katana slash effect on buttons */
+.btn-katana::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--steel-gray-light)), transparent);
+    transition: left 0.3s ease;
+}
+
+.btn-katana:hover::before {
+    left: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CARDS - Chapter scenes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card,
+[class*="Card"] {
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    border-radius: 0;
+    box-shadow: var(--shadow-noir);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Chapter card variant */
+.card-chapter {
+    border: 4px solid hsl(var(--bride-yellow));
+}
+
+.card-chapter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: repeating-linear-gradient(90deg,
+            hsl(var(--bride-yellow)) 0px,
+            hsl(var(--bride-yellow)) 12px,
+            hsl(var(--samurai-black)) 12px,
+            hsl(var(--samurai-black)) 24px);
+}
+
+.card-chapter>* {
+    padding-top: 1rem;
+}
+
+/* Blood card variant */
+.card-blood {
+    border: 2px solid hsl(var(--blood-red));
+    background: linear-gradient(135deg,
+            hsl(var(--samurai-black)) 0%,
+            hsla(0, 100%, 10%, 0.5) 100%);
+}
+
+.card-blood::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+            hsla(0, 100%, 27%, 0.2) 0%,
+            transparent 70%);
+    pointer-events: none;
+}
+
+/* Card hover effects */
+.card:hover {
+    border-color: hsl(var(--bride-yellow));
+    box-shadow: var(--shadow-katana);
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+}
+
+/* Card header */
+.card-header {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DIALOGS & MODALS - Confrontation scenes
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Dialog"],
+[class*="Modal"],
+.dialog,
+.modal {
+    background: hsl(var(--samurai-black));
+    border: 4px solid hsl(var(--bride-yellow));
+    border-radius: 0;
+    box-shadow: var(--shadow-dramatic);
+}
+
+/* Dialog overlay */
+[class*="DialogOverlay"],
+.dialog-overlay {
+    background: hsla(0, 0%, 0%, 0.9);
+    backdrop-filter: blur(4px);
+}
+
+/* Dialog header with stripe */
+[class*="DialogHeader"],
+.dialog-header {
+    position: relative;
+    padding-top: 2rem;
+}
+
+[class*="DialogHeader"]::before,
+.dialog-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(90deg,
+            hsl(var(--bride-yellow)) 0px,
+            hsl(var(--bride-yellow)) 10px,
+            hsl(var(--samurai-black)) 10px,
+            hsl(var(--samurai-black)) 20px);
+}
+
+/* Dialog title */
+[class*="DialogTitle"],
+.dialog-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: hsl(var(--bride-yellow));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INPUTS - Precision tools
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+input,
+textarea,
+select,
+[class*="Input"],
+[class*="Textarea"],
+[class*="Select"] {
+    background: hsl(var(--samurai-black-soft));
+    border: 2px solid hsl(var(--steel-gray-dark));
+    border-radius: 0;
+    color: hsl(var(--paper-cream));
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+[class*="Input"]:focus,
+[class*="Textarea"]:focus {
+    border-color: hsl(var(--bride-yellow));
+    box-shadow: 0 0 0 3px hsla(48, 100%, 50%, 0.2);
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: hsl(var(--steel-gray));
+}
+
+/* Input with error */
+input[aria-invalid="true"],
+.input-error {
+    border-color: hsl(var(--blood-red-bright));
+    box-shadow: 0 0 0 3px hsla(0, 100%, 45%, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGES & TAGS - Kill list markers
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge,
+[class*="Badge"] {
+    font-family: var(--font-heading);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 0;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid transparent;
+}
+
+/* Badge variants */
+.badge-bride {
+    background: hsl(var(--bride-yellow));
+    color: hsl(var(--samurai-black));
+}
+
+.badge-blood {
+    background: hsl(var(--blood-red));
+    color: hsl(var(--paper-cream));
+}
+
+.badge-steel {
+    background: hsl(var(--steel-gray));
+    color: hsl(var(--paper-cream));
+}
+
+.badge-outline {
+    background: transparent;
+    border: 1px solid hsl(var(--bride-yellow));
+    color: hsl(var(--bride-yellow));
+}
+
+/* Kill list badge */
+.badge-kill {
+    background: hsl(var(--blood-red));
+    color: hsl(var(--paper-cream));
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NAVIGATION - Path of revenge
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+nav,
+[class*="Navigation"],
+[class*="Nav"] {
+    background: hsl(var(--samurai-black));
+    border-bottom: 2px solid hsl(var(--bride-yellow));
+}
+
+/* Nav links */
+.nav-link,
+[class*="NavLink"] {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--steel-gray-light));
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+[class*="NavLink"]:hover {
+    color: hsl(var(--bride-yellow));
+}
+
+/* Active nav with katana underline */
+.nav-link-active,
+.nav-link[aria-current="page"] {
+    color: hsl(var(--bride-yellow));
+}
+
+.nav-link-active::after,
+.nav-link[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(var(--bride-yellow));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLES - Death lists
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+table,
+[class*="Table"] {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: hsl(var(--samurai-black));
+    color: hsl(var(--bride-yellow));
+    border-bottom: 2px solid hsl(var(--bride-yellow));
+    padding: 1rem;
+    text-align: left;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid hsl(var(--steel-gray-dark));
+    color: hsl(var(--paper-cream));
+}
+
+tr:hover {
+    background: hsla(48, 100%, 50%, 0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ALERTS & TOASTS - Warnings from Pai Mei
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.alert,
+[class*="Alert"],
+[class*="Toast"] {
+    border-radius: 0;
+    border: 2px solid;
+    font-family: var(--font-body);
+}
+
+.alert-warning {
+    background: hsla(48, 100%, 50%, 0.1);
+    border-color: hsl(var(--bride-yellow));
+    color: hsl(var(--bride-yellow));
+}
+
+.alert-error {
+    background: hsla(0, 100%, 27%, 0.1);
+    border-color: hsl(var(--blood-red-bright));
+    color: hsl(var(--blood-red-bright));
+}
+
+.alert-success {
+    background: hsla(120, 50%, 30%, 0.1);
+    border-color: hsl(120, 50%, 40%);
+    color: hsl(120, 50%, 50%);
+}
+
+.alert-info {
+    background: hsla(200, 100%, 50%, 0.1);
+    border-color: hsl(var(--tokyo-neon-blue));
+    color: hsl(var(--tokyo-neon-blue));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PROGRESS & LOADING - The long road
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+progress,
+[class*="Progress"] {
+    background: hsl(var(--samurai-black-soft));
+    border: 2px solid hsl(var(--steel-gray-dark));
+    border-radius: 0;
+    height: 12px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background: hsl(var(--samurai-black-soft));
+}
+
+progress::-webkit-progress-value {
+    background: hsl(var(--bride-yellow));
+}
+
+progress::-moz-progress-bar {
+    background: hsl(var(--bride-yellow));
+}
+
+/* Progress danger variant */
+.progress-danger::-webkit-progress-value {
+    background: linear-gradient(90deg, hsl(var(--blood-red-bright)), hsl(var(--blood-red)));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABS - Chapters
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Tabs"],
+.tabs {
+    border-bottom: 2px solid hsl(var(--steel-gray-dark));
+}
+
+[class*="TabsTrigger"],
+.tab-trigger {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--steel-gray-light));
+    border-radius: 0;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease;
+}
+
+[class*="TabsTrigger"]:hover,
+.tab-trigger:hover {
+    color: hsl(var(--bride-yellow));
+}
+
+[class*="TabsTrigger"][data-state="active"],
+.tab-trigger-active {
+    color: hsl(var(--bride-yellow));
+    border-bottom-color: hsl(var(--bride-yellow));
+    background: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOOLTIPS - Whispered secrets
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Tooltip"],
+.tooltip {
+    background: hsl(var(--samurai-black));
+    border: 1px solid hsl(var(--bride-yellow));
+    border-radius: 0;
+    color: hsl(var(--paper-cream));
+    font-size: var(--text-sm);
+    padding: 0.5rem 0.75rem;
+    box-shadow: var(--shadow-noir);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AVATARS - The Deadly Vipers
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Avatar"],
+.avatar {
+    border: 2px solid hsl(var(--bride-yellow));
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.avatar-bride {
+    border-color: hsl(var(--bride-yellow));
+}
+
+.avatar-oren {
+    border-color: hsl(var(--blood-red));
+}
+
+.avatar-bill {
+    border-color: hsl(var(--steel-gray));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DROPDOWN MENUS - Hidden weapons
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="DropdownMenu"],
+[class*="ContextMenu"],
+.dropdown {
+    background: hsl(var(--samurai-black));
+    border: 2px solid hsl(var(--bride-yellow));
+    border-radius: 0;
+    box-shadow: var(--shadow-dramatic);
+    padding: 0.5rem 0;
+}
+
+[class*="DropdownMenuItem"],
+.dropdown-item {
+    font-family: var(--font-body);
+    color: hsl(var(--paper-cream));
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+[class*="DropdownMenuItem"]:hover,
+.dropdown-item:hover {
+    background: hsla(48, 100%, 50%, 0.1);
+    color: hsl(var(--bride-yellow));
+}
+
+[class*="DropdownMenuItem"][data-highlighted],
+.dropdown-item-active {
+    background: hsl(var(--bride-yellow));
+    color: hsl(var(--samurai-black));
+}
+
+/* Destructive dropdown item */
+[class*="DropdownMenuItem"][data-variant="destructive"],
+.dropdown-item-destructive {
+    color: hsl(var(--blood-red-bright));
+}
+
+[class*="DropdownMenuItem"][data-variant="destructive"]:hover {
+    background: hsla(0, 100%, 27%, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SWITCH & CHECKBOX - Binary choices
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Switch"],
+.switch {
+    background: hsl(var(--steel-gray-dark));
+    border: 2px solid hsl(var(--steel-gray));
+    border-radius: 0;
+}
+
+[class*="Switch"][data-state="checked"],
+.switch-checked {
+    background: hsl(var(--bride-yellow));
+    border-color: hsl(var(--bride-yellow-dark));
+}
+
+[class*="Checkbox"],
+.checkbox {
+    border: 2px solid hsl(var(--steel-gray));
+    border-radius: 0;
+    background: hsl(var(--samurai-black-soft));
+}
+
+[class*="Checkbox"][data-state="checked"],
+.checkbox-checked {
+    background: hsl(var(--bride-yellow));
+    border-color: hsl(var(--bride-yellow));
+    color: hsl(var(--samurai-black));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEPARATOR - Clean cuts
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+hr,
+[class*="Separator"] {
+    border: none;
+    height: 2px;
+    background: hsl(var(--steel-gray-dark));
+}
+
+.separator-bride {
+    background: hsl(var(--bride-yellow));
+}
+
+.separator-blood {
+    background: hsl(var(--blood-red));
+}
+
+/* Katana separator */
+.separator-katana {
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            hsl(var(--steel-gray-light)),
+            hsl(var(--bride-yellow)),
+            hsl(var(--steel-gray-light)),
+            transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SKELETON LOADING - Shadows
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Skeleton"],
+.skeleton {
+    background: linear-gradient(90deg,
+            hsl(var(--samurai-black-soft)) 25%,
+            hsl(var(--steel-gray-dark)) 50%,
+            hsl(var(--samurai-black-soft)) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+    border-radius: 0;
+}
+
+@keyframes skeleton-pulse {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCORDION - Unfolding story
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[class*="Accordion"],
+.accordion {
+    border: 2px solid hsl(var(--steel-gray-dark));
+    border-radius: 0;
+}
+
+[class*="AccordionTrigger"],
+.accordion-trigger {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: hsl(var(--samurai-black));
+    color: hsl(var(--paper-cream));
+    padding: 1rem;
+    border-bottom: 1px solid hsl(var(--steel-gray-dark));
+    transition: all 0.2s ease;
+}
+
+[class*="AccordionTrigger"]:hover,
+.accordion-trigger:hover {
+    background: hsla(48, 100%, 50%, 0.05);
+    color: hsl(var(--bride-yellow));
+}
+
+[class*="AccordionContent"],
+.accordion-content {
+    background: hsl(var(--samurai-black-light));
+    padding: 1rem;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Admin User</title>
+    <style>
+        body {
+            font-family: system-ui;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: #00cc99;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #00b386;
+        }
+
+        .success {
+            color: #059669;
+            padding: 1rem;
+            background: #d1fae5;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .error {
+            color: #dc2626;
+            padding: 1rem;
+            background: #fee2e2;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔑 Create Admin User</h1>
+    <p>Use this page to create the first admin user for Splitwise.</p>
+
+    <form id="adminForm">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="username" value="admin" required>
+        </div>
+        <div class="form-group">
+            <label>Display Name</label>
+            <input type="text" id="displayName" value="Admin User" required>
+        </div>
+        <div class="form-group">
+            <label>PIN</label>
+            <input type="password" id="pin" value="1234" required maxlength="6">
+        </div>
+        <button type="submit">Create Admin User</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script type="module">
+        import { init, id } from 'https://esm.sh/@instantdb/core@0.19.9';
+
+        const APP_ID = '1c8c6446-39cc-429c-83c9-0d1b76fd06ca';
+        const db = init({ appId: APP_ID });
+
+        document.getElementById('adminForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const result = document.getElementById('result');
+
+            const username = document.getElementById('username').value.trim().toLowerCase();
+            const displayName = document.getElementById('displayName').value.trim();
+            const pin = document.getElementById('pin').value;
+
+            try {
+                const userId = id();
+                await db.transact(
+                    db.tx.users[userId].update({
+                        username,
+                        displayName,
+                        pin,
+                        isAdmin: true,
+                        avatarColor: '',
+                        createdAt: Date.now(),
+                    })
+                );
+
+                result.innerHTML = '<div class="success">✅ Admin user created successfully! You can now login to the app with username: <strong>' + username + '</strong> and PIN: <strong>' + pin + '</strong></div>';
+            } catch (error) {
+                result.innerHTML = '<div class="error">❌ Error: ' + error.message + '</div>';
+            }
+        });
+    </script>
+</body>
+
+</html>
